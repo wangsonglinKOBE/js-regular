@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const name = 'kobe-bryant';
+    // 或标识符：|
+    console.log(/@|b/.test(name)); //true
+
+    // 检测电话号是北京(010), 或者上海(020)
+    const tel = '010-12345678';
+    // \d: 数字(0到9)， {7,8}: 7到8位
+    // 检测满足 010-7到8位数字，或者020-7到8位数字
+    console.log(/(010|020)\-\d{7,8}/.test(tel)); //true
+
+
+  </script>
+</body>
+
+</html>

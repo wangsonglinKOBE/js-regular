@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="cont">
+    kobe_bryant_123
+  </div>
+
+  <script>
+    // 需求：如果用户输入的内容与上面div中的字符匹配则高亮匹配的部分，支持用户输出正则表达式
+    const cont = prompt('请输入要检测的内容，支持正则');
+    const reg = new RegExp(cont, 'g');
+    const divInner = document.querySelector('#cont');
+    divInner.innerHTML = divInner.innerHTML.replace(reg, record => `<span style='color: red'>${record}</span>`);
+
+    // 输入 \w  检测字母数字下划线
+    // 输入 \d  检测数字
+  </script>
+</body>
+
+</html>

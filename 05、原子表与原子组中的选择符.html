@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 原子表：[]
+    // 原子组：()
+
+    // 原子表在正则中也表示 或 的意思，可以不用加 |， 如下
+    const reg = new RegExp(/[123]/, 'g')
+    const tel = '1';
+    console.log(reg.test(tel)); //true
+    // 上面表示字符 tel 中检测是否包含 1 或者 2 或者 3
+
+    console.log(tel.match(reg));//['1']
+
+    const demo = tel.replace(reg, 'kobe');
+    console.log(demo);//kobe
+
+
+
+    // ------------------------------------------------------
+    // 原子组：(), 需要使用或标识符 | 
+    const yreg = new RegExp(/(12|34)/, 'g');
+    const ytel = '121211';
+    console.log(yreg.test(ytel)); //true
+    // 上面表示检测的字符是否包含 12 或者 34
+
+    console.log(ytel.match(yreg)); //['12', '12']
+
+    const ydemo = ytel.replace(yreg, 'jack');
+    console.log(ydemo); // jackjack11
+  </script>
+</body>
+
+</html>

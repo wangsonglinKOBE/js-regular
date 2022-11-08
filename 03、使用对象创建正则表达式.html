@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    // 使用对象创建正则表达式:
+    // new RegExp( '要查找 / 匹配的字符'， 模式(g: 全局) )
+    // 检测字符串中是否有 b
+    const reg = new RegExp('b', 'g');
+    const name = 'kobe-bryant';
+    // name 字符串是否满足上面的正则表达式 (返回boolean值)
+    console.log(reg.test(name)); //true
+
+
+    // 检测变量
+    const person = 'ya-suo';
+    const a = '-';
+    const personReg = new RegExp(a, 'g'); //传入变量
+    console.log(personReg.test(person)); //true
+
+
+    // match方法
+    const str = 'qwer325533';
+    const regNum = new RegExp(/\d/, 'g'); //匹配所有数字
+    // 要检测的字符.match(正则表达式) => 返回满足正则的数组
+    console.log(str.match(regNum)); //['3', '2', '5', '5', '3', '3']
+
+
+    // replace结合正则使用
+    // 查找字符中的 b，并替换成 B
+    const demoReg = new RegExp('b', 'g');
+    const demo = 'kobebryant'.replace(demoReg, (record) => { //第二个参数可以是回调函数
+      // 将所有的 b 替换成 B
+      return 'B';
+    });
+    console.log('demo', demo); //demo koBeBryant
+
+
+
+  </script>
+</body>
+
+</html>

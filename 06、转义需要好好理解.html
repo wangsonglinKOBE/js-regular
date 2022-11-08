@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 转义符号 \
+    // 例子：
+    // d 表示普通字符串，转义 \d 表示0到9的数字
+    // . 表示除换行外任何字符， 转义 \. 就只表示. 小数点
+
+    // 需求：匹配浮点数，小数点前后都有多个数字
+    const price = '25.33';
+    const reg = new RegExp(/\d+\.\d+/, 'g');
+    console.log(reg.test(price)); //true
+
+    console.log(/\d+\.\d+/.test(price)); //true
+
+    // 上面 \d+表示多个数字， \. 表示将除换行外任何字符转义为点 .
+
+    /*  踩坑点，如果使用对象的形式创建正则，并且传入的第一个参数是正则表达式时，不要加引号，直接 /正则匹配/ 
+     如果加引号写字符，则也需要转义 */
+    const errorReg = new RegExp('\\d+\\.\\d+', 'g');
+    console.log(errorReg.test(price)); //true
+
+    // 不转义
+    const demoReg = new RegExp('\d+\.\d+', 'g');
+    console.log(demoReg.test('ddd@dddd')); //true
+
+
+    // 打印转义后的字面量形式正则
+    console.log('\\d'); //打印 \d
+    console.log('\\d+\\.\\d+'); //打印 \d+\.\d+
+
+
+    // 网址的转义: 将网址中的 // 转义：\/\/
+    // /:在正则中表示边界符，所以需要转义 \/
+    // \w: 任何字母数字下划线
+    // ?: 这里表示有或没有 s
+    const url = 'https://www.baidu.com';
+    console.log(/https?:\/\/\w+\.\w+\.\w+/.test(url)); //true
+
+  </script>
+</body>
+
+</html>

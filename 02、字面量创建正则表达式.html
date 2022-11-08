@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const name = 'kobe-bryant';
+    // 检测 name 中是否包含 字符 b
+    console.log(/b/.test(name)); //ture
+
+
+    const str = new String('hello, world');
+    console.log(/o/.test(str)); // true
+
+
+
+    // eval() : 将字符串转为 js 表达式
+    // 检测 person 变量中 是否包含 p 变量的字符
+    const person = 'yasuo';
+    const p = 'ya'
+    console.log(eval(`/${p}/`).test(person));
+  </script>
+</body>
+</html>
