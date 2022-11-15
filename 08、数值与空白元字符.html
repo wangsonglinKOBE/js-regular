@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 元字符
+    const name = 'kobe 123'
+    // 匹配一个数值
+    // g: 如果不加全局，那么匹配到一个数值就会停止匹配，加上g则匹配到一个数值后会继续匹配
+    console.log(name.match(/\d/g)); //['1', '2', '3']
+
+    // +：表示匹配多个(多个连续挨在一起的)
+    console.log(name.match(/\d+/g)); //['123']
+
+    const info = `张三:010-123456789,李四:010-987654321`;
+    // 匹配座机号
+    console.log(info.match(/\d{3}-\d{8,9}/g)); //['010-123456789', '010-987654321']
+
+    // 数字：\d， 除了数字: \D
+    console.log(name.match(/\D/g)); //['k', 'o', 'b', 'e', ' ']
+    console.log(name.match(/\D+/g)); //['kobe ']
+
+    // 取出info 中的中文
+    // 原子表： [] => 使用match匹配时，表示匹配原子表中写的所有字符，如 [-\d:,] : 表示匹配 横杠，数值，冒号，逗号
+    // 在原子表中的开头加 ^, 表示取反的意思，表示除了原子表中的字符都匹配, 如下，匹配除了 横杠，数值，冒号，逗号
+    console.log(info.match(/[^-\d:,]+/g)); //['张三', '李四']
+
+  </script>
+</body>
+
+</html>

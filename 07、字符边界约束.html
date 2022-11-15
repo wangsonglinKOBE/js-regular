@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
+
+    <input type="text" name="user">
+    <span></span>
+
   <script>
+    const name = 'kobe123';
+    // 检测是否包含数字
+    console.log(/\d/.test(name)); //true
+
+
+    // 开始符号：^, 表示以什么开始，下面以数字开始
+    console.log(/^\d/.test(name)); //false
+
+    // 结束符号：$, 表示以什么结束，下面以数字结束
+    console.log(/\d$/.test(name)); //true
+
+
+    document.querySelector('input').addEventListener('keyup', (e) => {
+      // [a-z]{3,6}: a到z的字母，3到6位
+      // 使用 ^ $ 限制起始和结束，表示整个字符串限制在3到6位
+      console.log(e.target.value.match(/^[a-z]{3,6}$/));
+      const flag = e.target.value.match(/^[a-z]{3,6}$/);
+      const span = document.querySelector('span');
+      span.innerHTML = flag ? '正确' : '请输入3到6位字母';
+      span.style.color = flag ? 'black' : 'red';
+    });
+
+
     
   </script>
 </body>
+
 </html>
